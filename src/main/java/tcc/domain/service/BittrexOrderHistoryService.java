@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tcc.domain.model.BittrexOrderHistory;
-import tcc.domain.model.SumOrderHistory;
 import tcc.domain.repository.BittrexOrderHistoryRepository;
 
 @Service
@@ -36,11 +35,6 @@ public class BittrexOrderHistoryService extends OrderHistoryService<BittrexOrder
 
 	}
 
-	@Override
-	protected SumOrderHistory convert(BittrexOrderHistory history) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
 
 	@Override
 	protected void updateToIsConverted(List<BittrexOrderHistory> l) throws Exception {

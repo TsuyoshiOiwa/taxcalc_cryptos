@@ -11,5 +11,5 @@ import tcc.domain.model.BittrexOrderHistory;
  *
  */
 public interface BittrexOrderHistoryRepository extends JpaRepository<BittrexOrderHistory, Integer> {
-	List<BittrexOrderHistory> findByIsConverted(Boolean isConverted);
+	List<BittrexOrderHistory> findByIsCopied(Boolean isCopied);
 }

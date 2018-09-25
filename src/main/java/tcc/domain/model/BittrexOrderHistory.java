@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 
 /**
  * @author supertsuyoshi
@@ -17,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="bittrex_order_histories")
-public class BittrexOrderHistory extends OrderHistory implements Serializable {
+public class BittrexOrderHistory extends ParentOrderHistory implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,21 +34,27 @@ public class BittrexOrderHistory extends OrderHistory implements Serializable {
 	private String orderType;
 
 	@Column(name="limit")
+	@Digits(integer=23,fraction=8)
 	private BigDecimal limit;
 
 	@Column(name="quantity")
+	@Digits(integer=23,fraction=8)
 	private BigDecimal quantity;
 
 	@Column(name="remaining_quantity")
+	@Digits(integer=23,fraction=8)
 	private BigDecimal remainingQuantity;
 
 	@Column(name="commision")
+	@Digits(integer=23,fraction=8)
 	private BigDecimal commision;
 
 	@Column(name="price")
+	@Digits(integer=23,fraction=8)
 	private BigDecimal price;
 
 	@Column(name="price_per_unit")
+	@Digits(integer=23,fraction=8)
 	private BigDecimal pricePerUnit;
 
 	@Column(name="is_conditional")
@@ -62,17 +69,6 @@ public class BittrexOrderHistory extends OrderHistory implements Serializable {
 	@Column(name="immediate_or_cancel")
 	private String immediateOrCancel;
 
-	/*
-	 * SumOrderHistoryへのデータ移行をしたかどうかのチェックカラムデフォルト0
-	 */
-	@Column(name="is_converted")
-	private Boolean isConverted;
-
-	@Column(name="created_at")
-	private Timestamp createdAt;
-
-	@Column(name="updated_at")
-	private Timestamp updatedAt;
 
 	public Integer getId() {
 		return id;
@@ -186,24 +182,9 @@ public class BittrexOrderHistory extends OrderHistory implements Serializable {
 		this.immediateOrCancel = immediateOrCancel;
 	}
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 	@Override
-	SumOrderHistory convert() {
+	public SumOrderHistory convert() {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}

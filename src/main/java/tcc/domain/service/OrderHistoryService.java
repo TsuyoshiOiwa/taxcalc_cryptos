@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tcc.domain.model.OrderHistory;
+import tcc.domain.model.ParentOrderHistory;
 import tcc.domain.model.SumOrderHistory;
 
 /**
@@ -16,14 +16,13 @@ import tcc.domain.model.SumOrderHistory;
  */
 @Service
 @Transactional
-abstract public class OrderHistoryService<H extends OrderHistory> {
+abstract public class OrderHistoryService<H extends ParentOrderHistory> {
 
 	/*
 	 * 親クラス用のメソッド
 	 */
 	abstract protected List<H> getAllOrderHisotry() throws Exception;
 	abstract protected List<H> getNotConvertedOrderHisotry() throws Exception;
-	abstract protected SumOrderHistory convert(H history);
 
 	/*
 	 * 子クラス用のメソッド
