@@ -68,4 +68,6 @@ public class BittrexMarketPrice extends BaseEntity implements Serializable {
 	@Digits(integer=23,fraction=8)
 	private BigDecimal prevDay;
 	
+	
+	
 }

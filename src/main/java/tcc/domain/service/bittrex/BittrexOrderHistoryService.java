@@ -1,4 +1,4 @@
-package tcc.domain.service;
+package tcc.domain.service.bittrex;
 
 
 import java.util.List;
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import tcc.domain.model.BittrexOrderHistory;
 import tcc.domain.repository.BittrexOrderHistoryRepository;
+import tcc.domain.service.OrderHistoryService;
 
 @Service
 @Transactional
